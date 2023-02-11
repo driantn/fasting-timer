@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
         registerType: 'autoUpdate',
         manifest: {
           name: 'Fasting timer',
+          short_name: 'Fasting timer',
           description: 'Simple fasting timer',
           theme_color: '#075985',
           background_color: '#075985',
