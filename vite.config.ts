@@ -5,7 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
-    base: mode === 'local' ? '/' : '/fasting-timer',
+    base: mode === 'development' ? '/' : '/fasting-timer/',
     plugins: [
       react(),
       VitePWA({
@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => {
           ],
         },
         devOptions: {
-          enabled: true,
+          enabled: mode === 'development',
         },
       }),
     ],
