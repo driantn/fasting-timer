@@ -26,7 +26,7 @@ export const TimerBubble = () => {
     <div
       className={twMerge(
         classNames(
-          'rounded-full w-[200px] h-[200px] flex flex-col justify-center items-center font-bold text-white border-white border border-spacing-1',
+          'rounded-full w-[200px] h-[200px] flex flex-col justify-center items-center font-bold text-white border-white border border-spacing-1 relative overflow-hidden',
           {
             'bg-orange-500': diff <= low,
             'bg-yellow-500': diff > low && diff <= med,
@@ -36,7 +36,10 @@ export const TimerBubble = () => {
         ),
       )}
     >
-      <button onClick={() => setTimer(now().format())}>
+      <button
+        className="w-full h-full"
+        onClick={() => setTimer(now().format())}
+      >
         {dayjs(timer).from(dayjs(now()))}
       </button>
     </div>
