@@ -20,7 +20,7 @@ export const TimerBubble = () => {
   const now = () => dayjs().tz();
   const [timer, setTimer] = useLocalStorage('fasting-time', now().format());
   const parsedTimer = dayjs(timer).tz();
-  const diff = now().diff(parsedTimer, 'hours');
+  const diff = now().diff(parsedTimer, 'hour');
 
   return (
     <div
