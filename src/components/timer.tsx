@@ -10,16 +10,16 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(relativeTime);
 
-dayjs.tz.setDefault('Europe/Berlin');
+const tzName = 'Europe/Berlin';
 
 const low = 5;
 const med = 10;
 const high = 15;
 
 export const TimerBubble = () => {
-  const now = () => dayjs().tz();
+  const now = () => dayjs().tz(tzName);
   const [timer, setTimer] = useLocalStorage('fasting-time', now().format());
-  const parsedTimer = dayjs(timer).tz();
+  const parsedTimer = dayjs(timer).tz(tzName);
   const diff = now().diff(parsedTimer, 'hour');
 
   return (
