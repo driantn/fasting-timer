@@ -3,11 +3,7 @@ import classNames from 'classnames';
 import { twMerge } from 'tailwind-merge';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import utc from 'dayjs/plugin/utc';
-import timezone from 'dayjs/plugin/timezone';
 
-dayjs.extend(utc);
-dayjs.extend(timezone);
 dayjs.extend(relativeTime);
 
 const tzName = 'Europe/Berlin';
@@ -17,9 +13,9 @@ const med = 10;
 const high = 15;
 
 export const TimerBubble = () => {
-  const now = () => dayjs().tz(tzName);
+  const now = () => dayjs();
   const [timer, setTimer] = useLocalStorage('fasting-time', now().format());
-  const parsedTimer = dayjs(timer).tz(tzName);
+  const parsedTimer = dayjs(timer);
   const diff = now().diff(parsedTimer, 'hour');
 
   return (
