@@ -40,6 +40,7 @@ export const TimerBubble = () => {
         className="w-full h-full"
         onClick={() => setTimer(now().format())}
       >
+        <div>{diff}</div>
         {dayjs(timer).from(dayjs(now()))}
       </button>
     </div>
