@@ -6,8 +6,6 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 
 dayjs.extend(relativeTime);
 
-const tzName = 'Europe/Berlin';
-
 const low = 5;
 const med = 10;
 const high = 15;
@@ -36,8 +34,7 @@ export const TimerBubble = () => {
         className="w-full h-full"
         onClick={() => setTimer(now().format())}
       >
-        <div>{diff}</div>
-        {dayjs(timer).from(dayjs(now()))}
+        {parsedTimer.from(now())}
       </button>
     </div>
   );
